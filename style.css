@@ -1,88 +1,19 @@
-*{
-    margin: 0;
+* {
     padding: 0;
+    margin: 0;
     box-sizing: border-box;
-    font-family: 'Poppins';
-    text-decoration: none;
-    scroll-behavior: smooth;
-    list-style: none;
 }
 
-header {
+#experience {
     position: fixed;
-    top: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5rem;
-    background-color: #db2911;
-    backdrop-filter: blur(8px);
-    color:#f2f2f2;
-    padding: 0.5rem 1.5rem;
-    border-radius: 3rem;
-    z-index:1000;
-}
-
-.logo {
-    color:#f2f2f2;
-    font-size: 1.3rem;
-    font-weight: 600;
-    text-wrap: nowrap;
-    transition: 0.3s ease-in-out;
-}
-
-.logo:hover{
-    transform: scale(1.1);
-}
-
-.nav-links{
-    display: flex;
-    gap: 2rem;
-}
-
-li a{
-    position: relative;
-    color: #f2f2f2;
-    font-weight: 300;
-}
-
-li a::before{
-    position: absolute;
-    content: '';
-    width: 0;
-    left: 0;
-    height: 5px;
-    top: 25px;
-    border-radius: 1rem;
-    transition: 0.3s ease-in-out;
-    background: linear-gradient(to right, #f2f2f2, #db2911)
-}
-
-li a:hover::before{
+    height: 100%;
     width: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
 }
 
-.visit-page{
-    padding: 0.8rem 1.5rem;
-    border-radius: 3rem;
-    border:none;
-    font-weight: 500;
-    font-size: 1rem;
-    color: #ffeece;
-    cursor: pointer;
-    text-wrap: nowrap;
-    transition: 0.3s ease-in-out;
-    background: linear-gradient(to right, #f2f2f2, #db2911)
-}
-
-.visit-page:hover{
-    background: linear-gradient(to right, #db2911, #f2f2f2);
-    transform: scale(1.03);
-}
-
-#menu-icon{
-    font-size: 2rem;
-    display: none;
+#experience-canvas {
+    width: 100%;
+    height: 100%;
 }
