@@ -89,16 +89,26 @@ const hemiIntensity = 0.5;
 const hemisphereLight = new THREE.HemisphereLight(skyColor, groundColor, hemiIntensity);
 scene.add(hemisphereLight);
 
+
+
 // creating the camera
 const camera = new THREE.PerspectiveCamera( 75, sizes.width / sizes.height, 0.1, 1000 ); 
 
 // creating the arcball controls for the camera
-const controls = new OrbitControls( camera, canvas );
-controls.enableDamping = true; // Adds buttery smooth physics
-controls.dampingFactor = 0.05;
-controls.minDistance = 0.6; // minimum distance from the target
-controls.maxDistance = 2; // maximum distance from the target
-controls.update(); // updating the controls 
+// const controls = new OrbitControls( camera, canvas );
+// controls.enableDamping = true; // Adds buttery smooth physics
+// controls.dampingFactor = 0.05;
+// controls.minDistance = 0.6; // minimum distance from the target
+// controls.maxDistance = 2; // maximum distance from the target
+// controls.update(); // updating the controls 
+let mouseX = 0;
+let mouseY = 0;
+
+document.addEventListener('mousemove', function(e) {
+    mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+    mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
+});
+
 
 // i got the geometry like all the dots forming my mesh and materials, etc forming
 const geometry = new THREE.BoxGeometry( 1, 1, 1 );
@@ -122,7 +132,15 @@ function animate( time ) { // little animation for our cube :)
     //console.log("animating");
     particlesMesh.rotation.y += 0.001;
     particlesMesh.position.y += 0.0005;
-    controls.update();
+
+    // camera following mouse movement
+    const movementRange = 1;
+    const targetX = mouseX * movementRange;
+    const targetY = mouseY * movementRange;
+    camera.position.x += (targetX - camera.position.x) * 0.05;
+    camera.position.y += (targetY - camera.position.y) * 0.05;
+    camera.lookAt(scene.position);
+
     renderer.render( scene, camera );
 }
 renderer.setAnimationLoop( animate );
