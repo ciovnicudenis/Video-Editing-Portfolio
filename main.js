@@ -89,18 +89,10 @@ const hemiIntensity = 0.5;
 const hemisphereLight = new THREE.HemisphereLight(skyColor, groundColor, hemiIntensity);
 scene.add(hemisphereLight);
 
-
-
 // creating the camera
 const camera = new THREE.PerspectiveCamera( 75, sizes.width / sizes.height, 0.1, 1000 ); 
 
-// creating the arcball controls for the camera
-// const controls = new OrbitControls( camera, canvas );
-// controls.enableDamping = true; // Adds buttery smooth physics
-// controls.dampingFactor = 0.05;
-// controls.minDistance = 0.6; // minimum distance from the target
-// controls.maxDistance = 2; // maximum distance from the target
-// controls.update(); // updating the controls 
+// creating the controls
 let mouseX = 0;
 let mouseY = 0;
 
